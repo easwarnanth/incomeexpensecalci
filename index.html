@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income-Expense-Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto p-6">
+        <!-- Header -->
+        <h1 class="text-3xl font-bold text-center my-10 font-serif uppercase">Income-Expense-Calculator</h1>
+
+        <!-- Summary Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                <h2 class="text-xl font-semibold">Total Income</h2>
+                <p id="total-income" class="text-2xl text-green-500">$0.00</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                <h2 class="text-xl font-semibold">Total Expenses</h2>
+                <p id="total-expense" class="text-2xl text-red-500">$0.00</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                <h2 class="text-xl font-semibold">Net Balance</h2>
+                <p id="net-balance" class="text-2xl text-blue-500">$0.00</p>
+            </div>
+        </div>
+
+        <!-- Form Section -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-xl font-semibold mb-4">Add New Entry</h2>
+            <form id="entry-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="text" id="description" placeholder="Description" class="border p-2 rounded-lg" required>
+                <input type="number" id="amount" placeholder="Amount" class="border p-2 rounded-lg" required>
+                <div>
+                    <label><input type="radio" name="type" value="Income" class="mr-1" required>Income</label>
+                    <label class="ml-4"><input type="radio" name="type" value="Expense" class="mr-1">Expense</label>
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg col-span-2">Add Entry</button>
+            </form>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="flex justify-center mb-6">
+            <label class="mr-2">Filter:</label>
+            <label><input type="radio" name="filter" value="All" class="mr-1" checked>All</label>
+            <label class="ml-4"><input type="radio" name="filter" value="Income" class="mr-1">Income</label>
+            <label class="ml-4"><input type="radio" name="filter" value="Expense" class="mr-1">Expense</label>
+        </div>
+
+        <!-- Table Section -->
+        <table class="table-auto w-full bg-white rounded-lg shadow-md ">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="px-4 py-2">Description</th>
+                    <th class="px-4 py-2">Amount</th>
+                    <th class="px-4 py-2">Type</th>
+                    <th class="px-4 py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="entries-list">
+                <!-- Entries will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
